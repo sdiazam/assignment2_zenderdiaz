@@ -3,9 +3,9 @@ package com.example.assignment2_zenderdiaz.model;
 import java.util.List;
 
 public class MovieResponse {
-    private List<MovieModel> Search;
+    private List<Movie> Search;
 
-    public List<MovieModel> getSearch() {
+    public List<Movie> getSearch() {
         return Search;
     }
 

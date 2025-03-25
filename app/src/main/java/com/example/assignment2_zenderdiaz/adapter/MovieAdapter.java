@@ -1,10 +1,7 @@
-package com.example.assignment2_zenderdiaz;
+package com.example.assignment2_zenderdiaz.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,20 +9,20 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.assignment2_zenderdiaz.viewholder.MyViewHolder;
+import com.example.assignment2_zenderdiaz.R;
 import com.example.assignment2_zenderdiaz.listener.MovieClickListener;
-import com.example.assignment2_zenderdiaz.model.MovieModel;
-import com.example.assignment2_zenderdiaz.View.MovieDetailsActivity;
+import com.example.assignment2_zenderdiaz.model.Movie;
+import com.example.assignment2_zenderdiaz.views.MovieDetailsActivity;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 
-public class MyAdapter extends RecyclerView.Adapter<com.example.assignment2_zenderdiaz.MyViewHolder> {
-
-    private final ArrayList<MovieModel> movies;
+public class MovieAdapter extends RecyclerView.Adapter<MyViewHolder> {
+    private final ArrayList<Movie> movies;
     private final Context context;
     private MovieClickListener clickListener;
 
-    public MyAdapter(Context context, ArrayList<MovieModel> movies) {
+    public MovieAdapter(Context context, ArrayList<Movie> movies) {
         this.context = context;
         this.movies = movies;
     }
@@ -37,6 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<com.example.assignment2_zend
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //  layout
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.movie_layout, parent, false);
         return new MyViewHolder(itemView, clickListener);
@@ -44,18 +42,34 @@ public class MyAdapter extends RecyclerView.Adapter<com.example.assignment2_zend
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        MovieModel movie = movies.get(position);
+        // bind movie data to views
+        Movie movie = movies.get(position);
         holder.title.setText(movie.getMovieName());
         holder.description.setText(movie.getYear());
 
+        // load image
+        String posterUrl = movie.getPosterUrl();
+        if (posterUrl != null && !posterUrl.equals("N/A")) {
+            new Thread(() -> {
+                try {
+                    java.net.URL url = new java.net.URL(posterUrl);
+                    android.graphics.Bitmap bmp = android.graphics.BitmapFactory.decodeStream(url.openConnection().getInputStream());
+
+                    holder.poster.post(() -> holder.poster.setImageBitmap(bmp));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
 
         holder.detailButton.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), MovieDetailsActivity.class);
             intent.putExtra("movieTitle", movie.getMovieName());
             intent.putExtra("movieYear", movie.getYear());
-            intent.putExtra("movieCast", "Cast information not available");
-            intent.putExtra("movieDesc", "Description not available");
+            intent.putExtra("movieCast", movie.getActors() != null ? movie.getActors() : "Cast information not available");
+            intent.putExtra("movieDesc", movie.getPlot() != null ? movie.getPlot() : "Description not available");
             intent.putExtra("posterUrl", movie.getPosterUrl());
+            intent.putExtra("imdbId", movie.getImdbId());
             v.getContext().startActivity(intent);
         });
     }

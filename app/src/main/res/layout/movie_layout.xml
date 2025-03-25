@@ -1,49 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/movie_poster"
-        android:layout_width="80dp"
-        android:layout_height="120dp"
-        android:contentDescription="Movie Poster"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-    <TextView
-        android:id="@+id/movie_title"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Movie Title"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        app:layout_constraintStart_toEndOf="@id/movie_poster"
-        app:layout_constraintEnd_toStartOf="@id/detail_button"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="8dp" />
+        android:padding="12dp">
 
-    <TextView
-        android:id="@+id/movie_year"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Movie Year"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        app:layout_constraintStart_toEndOf="@id/movie_poster"
-        app:layout_constraintEnd_toStartOf="@id/detail_button"
-        app:layout_constraintTop_toBottomOf="@id/movie_title"
-        android:layout_marginStart="8dp" />
+        <ImageView
+            android:id="@+id/movie_poster"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Movie Poster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
-        android:id="@+id/detail_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Detail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:id="@+id/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Movie Title"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/movie_poster"
+            app:layout_constraintEnd_toStartOf="@id/detail_button"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="12dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/movie_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="2024"
+            android:textColor="#757575"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/movie_title"
+            app:layout_constraintTop_toBottomOf="@id/movie_title"
+            app:layout_constraintEnd_toEndOf="@id/movie_title" />
+
+        <Button
+            android:id="@+id/detail_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textAllCaps="false"
+            android:backgroundTint="#536DFE"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

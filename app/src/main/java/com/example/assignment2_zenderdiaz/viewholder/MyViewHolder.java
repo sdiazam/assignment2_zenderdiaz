@@ -1,4 +1,4 @@
-package com.example.assignment2_zenderdiaz;
+package com.example.assignment2_zenderdiaz.viewholder;
 
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.assignment2_zenderdiaz.R;
 import com.example.assignment2_zenderdiaz.listener.MovieClickListener;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
