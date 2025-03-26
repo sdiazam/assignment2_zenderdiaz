@@ -3,93 +3,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
+    android:background="@drawable/gradient_background"
     android:padding="16dp"
     tools:layout_editor_absoluteX="-16dp"
     tools:layout_editor_absoluteY="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="24dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/detail_poster"
-            android:layout_width="160dp"
-            android:layout_height="240dp"
-            android:layout_marginTop="24dp"
-            android:contentDescription="Movie Poster"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toStartOf="@id/detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:contentDescription="@string/movie_poster"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/detail_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Movie Title"
-            android:textColor="#212121"
+            android:layout_marginTop="16dp"
+            android:text="@string/movie_title"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/detail_poster"
-            app:layout_constraintTop_toTopOf="@id/detail_poster" />
+            app:layout_constraintTop_toBottomOf="@id/detail_poster"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/detail_year"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Year"
-            android:textColor="#616161"
+            android:layout_marginTop="8dp"
+            android:text="@string/year"
+            android:textColor="#BDBDBD"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/detail_title"
-            app:layout_constraintTop_toBottomOf="@id/detail_title" />
+            app:layout_constraintTop_toBottomOf="@id/detail_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/detail_cast"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Starring: ..."
-            android:textColor="#424242"
+            android:layout_marginTop="12dp"
+            android:text="@string/starring"
+            android:textColor="#BDBDBD"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@id/detail_year"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_poster" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/detail_desc"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Description"
-            android:textColor="#424242"
+            android:layout_marginTop="8dp"
+            android:text="@string/description"
+            android:textColor="#BDBDBD"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@id/detail_cast"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_cast" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:id="@+id/return_button"
+        <LinearLayout
+            android:id="@+id/buttonWrapper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="#536DFE"
-            android:text="Back"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_linear_background"
+            app:layout_constraintTop_toBottomOf="@id/detail_desc"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_desc" />
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/return_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:elevation="8dp"
+                android:text="@string/back"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -48,9 +48,6 @@ public class MainActivity extends AppCompatActivity implements MovieClickListene
             movieAdapter.notifyDataSetChanged();
         });
 
-        // observe loading
-        viewModel.getLoadingState().observe(this, isLoading -> binding.progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE));
-
         // observe errors
         viewModel.getErrorMessage().observe(this, error -> {
             if (error != null) {

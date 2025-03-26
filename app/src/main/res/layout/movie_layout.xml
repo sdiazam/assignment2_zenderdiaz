@@ -1,11 +1,12 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:elevation="4dp"
     app:cardCornerRadius="16dp"
-    app:cardBackgroundColor="#FFFFFF">
+    app:cardBackgroundColor="#131C29">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
             android:layout_width="80dp"
             android:layout_height="120dp"
             android:scaleType="centerCrop"
-            android:contentDescription="Movie Poster"
+            android:contentDescription="@string/movie_poster"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
@@ -26,12 +27,12 @@
             android:id="@+id/movie_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Movie Title"
+            android:text="@string/movie_title"
             android:textStyle="bold"
-            android:textColor="#212121"
+            android:textColor="#FFFFFF"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/movie_poster"
-            app:layout_constraintEnd_toStartOf="@id/detail_button"
+            app:layout_constraintEnd_toStartOf="@id/detail_button_wrapper"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="12dp" />
 
@@ -39,24 +40,32 @@
             android:id="@+id/movie_year"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="2024"
-            android:textColor="#757575"
+            android:text="@string/_2024"
+            android:textColor="#BDBDBD"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@id/movie_title"
             app:layout_constraintTop_toBottomOf="@id/movie_title"
             app:layout_constraintEnd_toEndOf="@id/movie_title" />
 
-        <Button
-            android:id="@+id/detail_button"
+        <LinearLayout
+            android:id="@+id/detail_button_wrapper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Details"
-            android:textAllCaps="false"
-            android:backgroundTint="#536DFE"
-            android:textColor="#FFFFFF"
+            android:background="@drawable/rounded_linear_background"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/detail_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="@string/details"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -3,4 +3,13 @@
     <string name="search">Search</string>
     <string name="enter_a_movie_to_search">Enter a movie to search</string>
     <string name="details">Details</string>
+    <string name="search_movies">Search movies...</string>
+    <string name="movie_poster">Movie Poster</string>
+    <string name="_2024">2024</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="starring">Starring: ...</string>
+    <string name="description">Description</string>
+    <string name="year">Year</string>
+    <string name="back">Back</string>
+    <string name="logo_image">Logo Image</string>
 </resources>
