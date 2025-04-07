@@ -1,4 +1,4 @@
-package com.example.assignment2_zenderdiaz.views;
+package com.example.assignment3_diaz.views;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.assignment2_zenderdiaz.databinding.ActivityMovieDetailsBinding;
+import com.example.assignment3_diaz.databinding.ActivityMovieDetailsBinding;
 
 import java.net.URL;
 
@@ -35,6 +35,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         binding.detailTitle.setText(movieTitle);
         binding.detailYear.setText(movieYear);
 
+        //poster loading
         if (posterUrl != null && !posterUrl.equals("N/A")) {
             new Thread(() -> {
                 try {

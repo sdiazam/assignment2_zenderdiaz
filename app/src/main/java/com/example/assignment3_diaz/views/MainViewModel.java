@@ -1,13 +1,13 @@
-package com.example.assignment2_zenderdiaz.views;
+package com.example.assignment3_diaz.views;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.assignment2_zenderdiaz.model.Movie;
-import com.example.assignment2_zenderdiaz.model.MovieResponse;
-import com.example.assignment2_zenderdiaz.utils.APIClient;
+import com.example.assignment3_diaz.model.Movie;
+import com.example.assignment3_diaz.model.MovieResponse;
+import com.example.assignment3_diaz.utils.APIClient;
 import com.google.gson.Gson;
 
 import java.io.IOException;

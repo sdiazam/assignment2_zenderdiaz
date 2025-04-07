@@ -1,4 +1,4 @@
-package com.example.assignment2_zenderdiaz;
+package com.example.assignment3_diaz;
 
 import org.junit.Test;
 

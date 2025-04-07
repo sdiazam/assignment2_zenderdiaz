@@ -1,4 +1,4 @@
-package com.example.assignment2_zenderdiaz.model;
+package com.example.assignment3_diaz.model;
 
 import com.google.gson.annotations.SerializedName;
 

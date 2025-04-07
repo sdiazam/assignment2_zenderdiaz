@@ -1,4 +1,4 @@
-package com.example.assignment2_zenderdiaz.views;
+package com.example.assignment3_diaz.views;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -9,20 +9,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.assignment2_zenderdiaz.adapter.MovieAdapter;
-import com.example.assignment2_zenderdiaz.databinding.ActivityMainBinding;
-import com.example.assignment2_zenderdiaz.listener.MovieClickListener;
-import com.example.assignment2_zenderdiaz.model.Movie;
+import com.example.assignment3_diaz.adapter.MovieAdapter;
+import com.example.assignment3_diaz.databinding.ActivityMainBinding;
+import com.example.assignment3_diaz.listener.MovieClickListener;
+import com.example.assignment3_diaz.model.Movie;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements MovieClickListener {
-
     private ActivityMainBinding binding;
     private MovieAdapter movieAdapter;
     private final ArrayList<Movie> movieList = new ArrayList<>();
     private MainViewModel viewModel;
+    FirebaseAuth mAuth;
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements MovieClickListene
         // view binding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        mAuth = FirebaseAuth.getInstance();
 
         // recycler view
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));

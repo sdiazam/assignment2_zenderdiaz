@@ -1,4 +1,4 @@
-package com.example.assignment2_zenderdiaz.adapter;
+package com.example.assignment3_diaz.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.assignment2_zenderdiaz.viewholder.MyViewHolder;
-import com.example.assignment2_zenderdiaz.R;
-import com.example.assignment2_zenderdiaz.listener.MovieClickListener;
-import com.example.assignment2_zenderdiaz.model.Movie;
-import com.example.assignment2_zenderdiaz.views.MovieDetailsActivity;
+import com.example.assignment3_diaz.viewholder.MyViewHolder;
+import com.example.assignment3_diaz.R;
+import com.example.assignment3_diaz.listener.MovieClickListener;
+import com.example.assignment3_diaz.model.Movie;
+import com.example.assignment3_diaz.views.MovieDetailsActivity;
 
 import java.util.ArrayList;
 
