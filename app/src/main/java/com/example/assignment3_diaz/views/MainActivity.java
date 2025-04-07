@@ -2,9 +2,11 @@ package com.example.assignment3_diaz.views;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +15,7 @@ import com.example.assignment3_diaz.adapter.MovieAdapter;
 import com.example.assignment3_diaz.databinding.ActivityMainBinding;
 import com.example.assignment3_diaz.listener.MovieClickListener;
 import com.example.assignment3_diaz.model.Movie;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -67,6 +70,17 @@ public class MainActivity extends AppCompatActivity implements MovieClickListene
                 Toast.makeText(MainActivity.this, "Enter a movie title", Toast.LENGTH_SHORT).show();
             }
         });
+
+        binding.bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            // make this go from view to view
+            // main activity ->
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                System.out.println(item.getItemId());
+
+                return true;
+            }
+        });
     }
 
     // movie click
@@ -74,4 +88,6 @@ public class MainActivity extends AppCompatActivity implements MovieClickListene
     public void onClick(View v, int pos) {
         Toast.makeText(this, "You chose: " + movieList.get(pos).getMovieName(), Toast.LENGTH_SHORT).show();
     }
+
+
 }
