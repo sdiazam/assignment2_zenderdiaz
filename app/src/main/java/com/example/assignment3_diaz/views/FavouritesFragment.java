@@ -16,23 +16,12 @@ import com.example.assignment3_diaz.R;
 
 public class FavouritesFragment extends Fragment {
 
-    private FavouritesViewModel mViewModel;
-
-    public static FavouritesFragment newInstance() {
-        return new FavouritesFragment();
-    }
+    private FavouritesViewModel viewModel;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        viewModel = new ViewModelProvider(this).get(FavouritesViewModel.class);
         return inflater.inflate(R.layout.fragment_favourites, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(FavouritesViewModel.class);
-        // TODO: Use the ViewModel
     }
 
 }

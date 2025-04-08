@@ -22,6 +22,8 @@ public class Movie {
     @SerializedName("Plot")
     private String plot;
 
+    private boolean isFavorited;
+
 
     public Movie() {}
 
@@ -43,4 +45,6 @@ public class Movie {
 
     public String getActors() { return actors; }
     public String getPlot() { return plot; }
+
+    public boolean getIsFavourited() { return isFavorited; }
 }

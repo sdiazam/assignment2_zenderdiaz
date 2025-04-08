@@ -28,10 +28,6 @@ public class MainViewModel extends ViewModel {
         return movies;
     }
 
-    public LiveData<Boolean> getLoadingState() {
-        return isLoading;
-    }
-
     public LiveData<String> getErrorMessage() {
         return errorMessage;
     }
