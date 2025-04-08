@@ -54,4 +54,5 @@ dependencies {
     implementation(libs.okhttp)
     implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("androidx.fragment:fragment:1.8.6")
 }
