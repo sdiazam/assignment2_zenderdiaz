@@ -34,7 +34,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //  layout
+        // Inflate layout for RecyclerView item
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.movie_layout, parent, false);
         return new MyViewHolder(itemView, clickListener);
@@ -42,12 +42,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        // bind movie data to views
         Movie movie = movies.get(position);
+
+        // Display only specific fields in the RecyclerView
         holder.title.setText(movie.getMovieName());
         holder.description.setText(movie.getYear());
 
-        // load image
+        // Load poster image
         String posterUrl = movie.getPosterUrl();
         if (posterUrl != null && !posterUrl.equals("N/A")) {
             new Thread(() -> {
@@ -62,7 +63,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MyViewHolder> {
             }).start();
         }
 
+        // Attach listeners for details and favourites actions
         holder.detailButton.setOnClickListener(v -> {
+            // Pass the entire Movie object to the details activity
             Intent intent = new Intent(v.getContext(), MovieDetailsActivity.class);
             intent.putExtra("movieTitle", movie.getMovieName());
             intent.putExtra("movieYear", movie.getYear());

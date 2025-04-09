@@ -17,6 +17,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     public final TextView description;
     public final ImageView poster;
     public final Button detailButton;
+    public final Button favouritesButton;
 
     public MyViewHolder(@NonNull View itemView, MovieClickListener listener) {
         super(itemView);
@@ -24,8 +25,16 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         description = itemView.findViewById(R.id.movie_year);
         poster = itemView.findViewById(R.id.movie_poster);
         detailButton = itemView.findViewById(R.id.detail_button);
+        favouritesButton = itemView.findViewById(R.id.favouriteButton);
+
 
         detailButton.setOnClickListener(v -> {
+            if (listener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
+                listener.onClick(v, getAdapterPosition());
+            }
+        });
+
+        favouritesButton.setOnClickListener(v -> {
             if (listener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
                 listener.onClick(v, getAdapterPosition());
             }

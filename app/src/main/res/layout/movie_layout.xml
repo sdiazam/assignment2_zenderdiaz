@@ -57,13 +57,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/favouriteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:contentDescription="@string/favourites"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                app:icon="@android:drawable/btn_star_big_off"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconTint="@null"
+                app:iconSize="36dp"
+                />
 
             <Button
                 android:id="@+id/detail_button"

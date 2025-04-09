@@ -2,6 +2,9 @@ package com.example.assignment3_diaz.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Movie {
     @SerializedName("Title")
     private String movieName;
@@ -12,7 +15,6 @@ public class Movie {
     @SerializedName("imdbID")
     private String imdbId;
 
-
     @SerializedName("Poster")
     private String posterUrl;
 
@@ -22,8 +24,7 @@ public class Movie {
     @SerializedName("Plot")
     private String plot;
 
-    private boolean isFavorited;
-
+    private boolean isFavourited;
 
     public Movie() {}
 
@@ -43,8 +44,26 @@ public class Movie {
         return posterUrl;
     }
 
-    public String getActors() { return actors; }
-    public String getPlot() { return plot; }
+    public String getActors() {
+        return actors;
+    }
 
-    public boolean getIsFavourited() { return isFavorited; }
+    public String getPlot() {
+        return plot;
+    }
+
+    public boolean getIsFavourited() {
+        return isFavourited;
+    }
+
+    public static Map<String, Object> movieToMap(Movie movie) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("movieName", movie.getMovieName());
+        map.put("year", movie.getYear());
+        map.put("imdbId", movie.getImdbId());
+        map.put("posterUrl", movie.getPosterUrl());
+        map.put("actors", movie.getActors());
+        map.put("plot", movie.getPlot());
+        return map;
+    }
 }
